@@ -10,7 +10,7 @@ class CountdownContainer extends React.Component {
   }
   render () {
     if (this.state.mounted) {
-      return <Countdown date={'03 June 2017 09:30:00'} renderer={renderCountdown} />
+      return <Countdown date={'25 May 2017 09:30:00'} renderer={renderCountdown} />
     } else {
       return renderCountdown({
         days: '…',
