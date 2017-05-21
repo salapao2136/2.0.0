@@ -71,7 +71,7 @@ function TicketsRow ({ title, date, isFull }) {
 
 function Button ({ children, href, date }) {
   return (
-    <a className={`button ${checkTicket(date) ? 'buynow': 'waitbuy'}`} href={href}>
+    <a className={`button ${checkTicket(date) ? 'buynow' : 'waitbuy'}`} href={href}>
       {children}
       <style jsx>{`
         .button {
