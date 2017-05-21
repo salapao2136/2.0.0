@@ -5,7 +5,7 @@ export default function TicketsSection () {
     <div className='tickets'>
       <SectionTitle>Tickets</SectionTitle>
       <TicketsTable />
-      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0'>Get Tickets</Button>
+      <Button href='https://www.eventpop.me/e/1809-react-bangkok-2-0-0' date='25 May 2017'>Get Tickets</Button>
       <style jsx>{`
         .tickets {
           text-align: center;
@@ -14,7 +14,9 @@ export default function TicketsSection () {
     </div>
   )
 }
-
+function checkTicket (date) {
+  return new Date(date).getDate() === new Date(Date.now()).getDate()
+}
 function TicketsTable () {
   return (
     <div className='tickets-table'>
@@ -67,22 +69,28 @@ function TicketsRow ({ title, date, isFull }) {
   )
 }
 
-function Button ({ children, href }) {
+function Button ({ children, href, date }) {
   return (
-    <a className='button' href={href}>
+    <a className={`button ${checkTicket(date) ? 'buynow': 'waitbuy'}`} href={href}>
       {children}
       <style jsx>{`
         .button {
           display: inline-block;
           font-size: 18px;
           line-height: 33px;
-          color: #FF5274;
-          border: 2px solid #FF5274;
           padding: 0 30px;
           border-radius: 35px;
           text-transform: uppercase;
           text-decoration: none;
           transition: 0.15s all ease-out;
+        }
+        .waitbuy {
+          color: #00D8FF;
+          border: 2px solid #00D8FF;
+        }
+        .buynow {
+          color: #FF5274;
+          border: 2px solid #FF5274;
         }
         .button:hover {
           background: #00D8FF;
